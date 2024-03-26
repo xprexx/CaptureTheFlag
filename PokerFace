@@ -3,3 +3,25 @@ Introduction
 Poker Face is one of the challs in 2024 WhiteHack CTF competition.
 It is one of the more interesting / fun CTF question I had done and therefore decided to do a writeup for it.
 
+Challenge Catagory: Crypto
+Challenge Name: Poker Face
+Challenge Point / Challenge Difficulty: 1000 / 1 star
+
+Challenge Description: 
+I am a poker champ with a poker face. I'm going on a journey to decipher this mysterious message sent to me by a fan. Come along and help me out!
+This journey is going to be very loooong and very tiresome. If you're bored, maybe you can buy a hint to find out more about me. We could share fun facts about ourselves!
+
+Challenge Hint:
+Thanks for speaking to me. It was starting to get a little awkward over here. Here are some fun facts about myself:
+* My dad used to call me Ace. He always told me it's because Ace is synonymous with being best, and we always saved the best for last. I love being called Ace.
+* I am known as the Calculating genius because I have an unparalleled ability to calculate odds and read opponents
+* Duck are my favorite animals
+* I have a huge Hat collection
+* My favorite Sauce is mentaiko
+* I love eating salads
+
+Challenge Update / Issue:
+Regarding the Cryptography's Poker Face Challenge, there was an issue with the flag format. 
+
+Challenge File: png image which contains details on some poker cards
+Text Format: 2SPADE _ 8SPADE 2CLUB 3DIAMOND 8HEART _ 3HEART KDIAMOND 8HEART 10CLUB KDIAMOND 8CLUB _ 9CLUB KDIAMOND 9SPADE KDIAMOND 8HEART
