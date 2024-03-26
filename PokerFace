@@ -1,7 +1,7 @@
 Introduction
 
 Poker Face is one of the challs in 2024 WhiteHack CTF competition.
-It is one of the more interesting / fun CTF question I had done :).
+It is one of the more interesting / fun CTF question i had done :).
 
 Challenge Catagory: Crypto
 Challenge Name: Poker Face
@@ -55,4 +55,74 @@ Upon further analysis of the cards in the question, we realised that there were 
 The answer seems to be either a phrase or a sentence, with the underscores dictating its a new word
 Hence by this logic, the first letter for "2Spade" would most likely correspond to either "A" or "I".
 
-4. 
+4. The tough part
+Although we had gathered the information above, we still did not have enough information that could drive us to the answer.
+Suite order: "Clubs","Diamonds", "Hearts", "Spades"
+Order of number: 2,3,4...J,Q,K,A
+
+How about character sets? We wrongly assumed that it was "ABC...XYZabc...xyz"
+What this mean is, 
+e.g1. We deem "2 of Clubs" to be the 1st card in the deck. The position in which the card is in the deck is referred to as the "INDEX".
+INDEX 1, when referring to this character set, is the letter "A".
+e.g2. We deem "Ace of Spades" to be the last / 52nd card in the deck.
+INDEX 52, when referring to this character set, is the letter "z".
+
+How about the way which the cards are ordered within the deck itself?
+Is the card arranged in
+1. 2Clubs, 2Diamonds, 2Hearts, 2Spades, 3Clubs, 3Diamonds ...... AClubs, ADiamonds, AHearts, ASpades
+2. 2Clubs, 3Clubs, 4Clubs ... 2Diamonds, 3Diamonds, 4Diamonds ... 2Hearts, 3Hearts, 4Hearts... 2Spades, 3Spades, 4Spades...
+
+We were unable to determine these so we had to just try out our approaches.
+It was pretty obvious after a while that something was not right, despite trying the both ways to arrange the cards and caesar ciphering the results, we obtained nonsensical results.
+We were at a loss of what to do and how to continue, honestly pretty fed up and wondering what was wrong.
+Until.....
+
+5. “Snow lands on top.”
+We had already exhausted the possible combinations possible for how the cards can be arranged, we even thought that the hint provided was wrong and started changing the suites positionings.
+The caesar ciphers largely returned us similar results despite changing the hierachy of the suites and the order of the numbers.
+However, we suddenly had the idea that the problem might have been the character set instead.
+With a newfound determination, we changed the character set to "AaBbCcDdEe...YyZz".
+The original character set separated the UPPERCASE alphabets from the lowercase alphabets while this new character set alternates for each letter.
+
+We decided to then test out the first few letters to ensure that the new character set, suite hierachy, and card arrangement is correct.
+==========================================
+Suite order: "Clubs","Diamonds", "Hearts", "Spades"
+Order of number: 2,3,4...J,Q,K,A
+Character Set: "AaBbCcDdEe...YyZz"
+Card arrangement: 2Clubs, 3Clubs, 4Clubs ... 2Diamonds, 3Diamonds, 4Diamonds ... 2Hearts, 3Hearts, 4Hearts... 2Spades, 3Spades, 4Spades...
+
+2SPADE _ 8SPADE 2CLUB 3DIAMOND 8HEART
+
+2SPADE = 13*3 + 1 = 40 [13*3 as there are 13 cards in Clubs, Diamonds, and Hearts, and it is the 1st card in Spades due to order of number]
+8SPADE = 13*3 + 7 = 46 [similar reasoning]
+2CLUB = 1 [1st card in the deck]
+3DIAMOND = 13*1 + 2 = 15 [13*1 as there are 13 cards in Clubs. Diamonds is the 2nd suite]
+8HEART = 13*2 + 7 = 33 [13*2 as there are 13 cards in Clubs and Diamonds. Hearts is the 3rd suite]
+
+Using the numbers obtained from the calculation above, we can use them as indexes for the character set.
+40 _ 46 1 15 33 = t _ w A H Q
+
+At first glance this does not make sense at all, but after coding a simple caesar cipher function and obtaining the possible results,
+offsetting the above values by 29 will return us with ...
+
+(40 + 29)mod 52 = 17
+(46 + 29)mod 52 = 23
+(1 + 29)mod 52 = 30
+(15 + 29)mod 52 = 44
+(33 + 29)mod 52 = 10
+
+Remapping the numbers obtained after the offset and using them as indexes, we will obtain
+17 _ 23 30 44 10 = I _ L o v e
+
+Wow! This is actually a readable string! This seems to be the correct approach. By continuing the approach above, we would be able to end up with the final answer:
+I_Love_Casesar_Salad
+
+6. Conclusion
+
+This chall is overall pretty fun, and not too code intensive. 
+There have been instances when we felt it was kind of unsolvable and wanted to give up and move on to another question, but we perservered.
+While some parts were pretty straightforward, the character set got us stuck for hours without any clues on how to proceed.
+The card arrangement was also abit of a wild guess, and fortunately we managed to get it right with the new character set.
+
+At the end, the challenge is akin to poker, blending skill with a dash of luck.
+
