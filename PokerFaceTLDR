@@ -1,0 +1,34 @@
+Introduction
+"Poker Face" is one of the challenges in the 2024 WhiteHack CTF competition, offering an intriguing and enjoyable experience.
+
+Challenge Details:
+Category: Crypto
+Challenge Name: Poker Face
+Challenge Points / Difficulty: 1000 / 1 star
+Challenge File: A PNG image containing details of various poker cards.
+Text Format: 2SPADE _ 8SPADE 2CLUB 3DIAMOND 8HEART _ 3HEART KDIAMOND 8HEART 10CLUB KDIAMOND 8CLUB _ 9CLUB KDIAMOND 9SPADE KDIAMOND 8HEART
+
+Challenge Description:
+As a poker champ with a poker face, I've received a mysterious message from a fan. Join me on this journey to decipher it!
+
+Challenge Hint:
+Thanks for reaching out! Here are some fun facts about myself:
+My dad called me Ace because he believed in saving the best for last.
+I'm known as the Calculating genius for my ability to read opponents.
+Ducks are my favorite animals.
+I collect Hats.
+My favorite Sauce is mentaiko.
+I enjoy eating salads.
+
+Challenge Update / Issue:
+We initially struggled with this challenge but eventually cracked it after the competition. Here's how we did it:
+
+Steps Taken:
+1. We analyzed the title "Poker Face" and speculated on the nature of the challenge.
+2. The hint provided valuable insights, particularly the reference to "saving the best for last" and the capitalization of suite initials.
+3. We noticed the repetition of "KingDiamond" and inferred it might represent a vowel.
+4. We deduced a potential flag format based on the underscores between card representations.
+5. Despite uncertainties regarding card arrangement and character sets, we persevered.
+6. We finally achieved a breakthrough by altering the character set and employing a Caesar cipher approach.
+7. Our method gradually unveiled the message, leading us to the final answer: I_Love_Casesar_Salad.
+8. In conclusion, "Poker Face" is a challenge that demands both skill and luck, reminiscent of a game of poker.
