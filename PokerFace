@@ -1,11 +1,14 @@
 Introduction
 
 Poker Face is one of the challs in 2024 WhiteHack CTF competition.
-It is one of the more interesting / fun CTF question I had done and therefore decided to do a writeup for it.
+It is one of the more interesting / fun CTF question I had done :).
 
 Challenge Catagory: Crypto
 Challenge Name: Poker Face
 Challenge Point / Challenge Difficulty: 1000 / 1 star
+
+Challenge File: png image which contains details on some poker cards
+Text Format: 2SPADE _ 8SPADE 2CLUB 3DIAMOND 8HEART _ 3HEART KDIAMOND 8HEART 10CLUB KDIAMOND 8CLUB _ 9CLUB KDIAMOND 9SPADE KDIAMOND 8HEART
 
 Challenge Description: 
 I am a poker champ with a poker face. I'm going on a journey to decipher this mysterious message sent to me by a fan. Come along and help me out!
@@ -23,5 +26,33 @@ Thanks for speaking to me. It was starting to get a little awkward over here. He
 Challenge Update / Issue:
 Regarding the Cryptography's Poker Face Challenge, there was an issue with the flag format. 
 
-Challenge File: png image which contains details on some poker cards
-Text Format: 2SPADE _ 8SPADE 2CLUB 3DIAMOND 8HEART _ 3HEART KDIAMOND 8HEART 10CLUB KDIAMOND 8CLUB _ 9CLUB KDIAMOND 9SPADE KDIAMOND 8HEART
+[PLEASE ATTEMPT THIS QNS BEFORE LOOKING AT THE SOLUTION]
+
+
+
+CHALLENGE SOLUTION
+
+This solution was a joint effort made by my friend and I after the competition has ended. 
+We were unable to figure out the way to solve it during the competition, and only managed to finally obtain the flag afterwards.
+We were unable to come up with a concrete way to do this question and spent quite a fair bit of time trying to decipher it.
+
+Steps Taken
+1. Thought process
+With the question titled "Poker Face", we could confirm some of the details.
+- 52 cards in a card deck (excluding jokers)
+- 26 alphabets, meaning that each card will most likely represent either a UPPERCASE or lowercase alphabet
+
+2. Challenge hints
+After the challenge ended the first thing we did was to check out the challenge hint, and it was very informative.
+
+- "we always saved the best for last" -> suggested that Ace is probably at the bottom of the deck (i.e. starts with 2,3,4...J,Q,K,A)
+- The capitalisation of "C","D","H","S" within the next few lines suggested there was something important to it. Upon analysis, coincidentally they match with the suites of cards, "Clubs","Diamonds", "Hearts", "Spades"
+- "I love eating salad". It seemed kinda odd to us at first, what can it relate to? We thought that it was a red herring.
+- While doing we realised that since we were converting to numbers, salad might have been an indirect hint for "caesar cipher" because of "casesar salad".
+
+3. Relooking at the question
+Upon further analysis of the cards in the question, we realised that there were multiple instances of "KingDiamond" and assumed that it would most likely be a vowel.
+The answer seems to be either a phrase or a sentence, with the underscores dictating its a new word
+Hence by this logic, the first letter for "2Spade" would most likely correspond to either "A" or "I".
+
+4. 
